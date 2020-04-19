@@ -12,7 +12,7 @@ def idea_2019_03_20_to_idea_2020_03_21(snapshot_manager=None):
     activities_file_path = "data/activities_2019_03_20_to_idea_2020_03_21.json"
     zip_file_path = activities_file_path + ".zip"
     if not path.exists(activities_file_path):
-        _download_file('https://github.com/avokin/youtrack-api-client/raw/master/data/activities_2019_03_20_to_idea_2020_03_21.json.zip', zip_file_path)
+        _download_file('https://github.com/avokin/datasets/raw/master/youtrack/activities_2019_03_20_to_idea_2020_03_21.json.zip', zip_file_path)
     if not path.exists(zip_file_path):
         raise Exception("Can't download issue activities")
 
@@ -25,7 +25,7 @@ def idea_2019_03_20_to_idea_2020_03_21(snapshot_manager=None):
     if snapshot_manager is None:
         snapshot_manager = SnapshotStrategy()
     activity_manager = IdeaActivityManager(snapshot_manager)
-    activity_manager.load_issues_from_activities_file('data/activities_3d.json')
+    activity_manager.load_issues_from_activities_file('data/activities_2019_03_20_to_idea_2020_03_21.json')
     return snapshot_manager.issues
 
 
